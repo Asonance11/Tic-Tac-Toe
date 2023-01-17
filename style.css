@@ -1,6 +1,6 @@
 :root {
-	--background: #000;
-	--white: #fff;
+	--background: ##fff;
+	--color: #000;
 	font-size: 16px;
 }
 * {
@@ -16,6 +16,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background-color: var(--background);
 }
 h1 {
 	color: var(--background);
@@ -28,6 +29,7 @@ h1 {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
+	background-color: var(--color);
 }
 .cell {
 	border: 1px solid var(--background);
@@ -40,14 +42,15 @@ h1 {
 }
 .text {
 	font-size: 1.5rem;
-	color: var(--background);
+	color: var(--color);
 }
 .restart {
 	padding: 10px 20px;
 	border-radius: 6px;
-	border: 1px solid var(--background);
+	border: 1px solid var(--color);
 	background: var(--white);
 	font-size: 1.2rem;
+	color: var(--color);
 }
 
 /* responsive design */
@@ -65,5 +68,11 @@ h1 {
 	}
 	.text {
 		font-size: 1.2rem;
+	}
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #000;
+		--color: #fff;
 	}
 }
