@@ -19,15 +19,27 @@ const gameBoard = (() => {
 			cells[i].textContent = '';
 		}
 	}
-	cells.forEach((cell) => {
-		cell.addEventListener('click', () => {
-			if (currentPlayer == player1.marker) {
-				cell.textContent = currentPlayer;
-				currentPlayer = player2.marker;
-			} else {
-				cell.textContent = currentPlayer;
-				currentPlayer = player1.marker;
-			}
+	// cells.forEach((cell) => {
+	// 	cell.addEventListener('click', () => {
+	// 		if (currentPlayer == player1.marker) {
+	// 			cell.textContent = currentPlayer;
+	// 			currentPlayer = player2.marker;
+	// 		} else {
+	// 			cell.textContent = currentPlayer;
+	// 			currentPlayer = player1.marker;
+	// 		}
+	// 	});
+	// });
+	for (let i = 0; i < cells.length; i++) {
+		cells[i].addEventListener('click', () => {
+			if (cells[i].textContent == '')
+				if (currentPlayer == player1.marker) {
+					cells[i].textContent = currentPlayer;
+					currentPlayer = player2.marker;
+				} else {
+					cells[i].textContent = currentPlayer;
+					currentPlayer = player1.marker;
+				}
 		});
-	});
+	}
 })();
