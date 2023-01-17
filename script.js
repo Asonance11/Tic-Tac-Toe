@@ -18,6 +18,7 @@ const gameBoard = (() => {
 	function restart() {
 		for (let i = 0; i < cells.length; i++) {
 			cells[i].textContent = '';
+			text.textContent = '';
 		}
 	}
 
