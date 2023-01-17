@@ -1,0 +1,44 @@
+:root {
+	--background: #000;
+	--white: #fff;
+	font-size: 16px;
+}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'poppins', sans-serif;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+h1 {
+	color: var(--background);
+}
+.game-container {
+	width: 30vw;
+	height: 50vh;
+	border: 1px solid var(--background);
+	border-radius: 12px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+}
+.cell {
+	border: 1px solid var(--background);
+	text-align: center;
+	font-size: 4rem;
+	font-weight: 400;
+}
+.restart {
+	padding: 10px 20px;
+	border-radius: 6px;
+	border: 1px solid var(--background);
+	background: var(--white);
+	font-size: 1.2rem;
+}
