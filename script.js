@@ -19,6 +19,7 @@ const gameBoard = (() => {
 		for (let i = 0; i < cells.length; i++) {
 			cells[i].textContent = '';
 			text.textContent = '';
+			currentPlayer = player1.marker;
 		}
 	}
 
@@ -32,8 +33,10 @@ const gameBoard = (() => {
 					if (i == 0 || i == 2)
 						if (cells[i].textContent == player1.marker) {
 							text.textContent = `X wins`;
+							currentPlayer = player1.marker;
 						} else if (cells[i].textContent == player2.marker) {
 							text.textContent = `O wins`;
+							currentPlayer = player1.marker;
 						}
 				} else if (
 					cells[i].textContent == cells[i + 3].textContent &&
@@ -42,20 +45,26 @@ const gameBoard = (() => {
 					if (i == 0 || i == 1 || i == 2)
 						if (cells[i].textContent == player1.marker) {
 							text.textContent = `X wins`;
+							currentPlayer = player1.marker;
 						} else if (cells[i].textContent == player2.marker) {
 							text.textContent = `O wins`;
+							currentPlayer = player1.marker;
 						}
 				} else if (
-					cells[i].textContent == cells[i + 2].textContent &&
+					cells[i].textContent == cells[i + 1].textContent &&
 					cells[i + 2].textContent == cells[i].textContent
 				) {
 					if (i == 0 || i == 3 || i == 6)
 						if (cells[i].textContent == player1.marker) {
 							text.textContent = `X wins`;
+							currentPlayer = player1.marker;
 						} else if (cells[i].textContent == player2.marker) {
 							text.textContent = `O wins`;
+							currentPlayer = player1.marker;
 						}
 				}
+			} else {
+				continue;
 			}
 		}
 	}
@@ -65,10 +74,12 @@ const gameBoard = (() => {
 				if (currentPlayer == player1.marker) {
 					cells[i].textContent = currentPlayer;
 					currentPlayer = player2.marker;
+					text.textContent = `${currentPlayer}'s turn`;
 					checkWinner();
 				} else {
 					cells[i].textContent = currentPlayer;
 					currentPlayer = player1.marker;
+					text.textContent = `${currentPlayer}'s turn`;
 					checkWinner();
 				}
 		});
