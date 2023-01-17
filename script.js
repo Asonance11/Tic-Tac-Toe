@@ -26,6 +26,26 @@ const gameBoard = (() => {
 		for (let i = 0; i < cells.length; i++) {
 			if (cells[i].textContent !== '') {
 				if (
+					cells[i].textContent == cells[i + 4].textContent &&
+					cells[i + 8].textContent == cells[i].textContent
+				) {
+					if (i == 0 || i == 2)
+						if (cells[i].textContent == player1.marker) {
+							text.textContent = `X wins`;
+						} else if (cells[i].textContent == player2.marker) {
+							text.textContent = `O wins`;
+						}
+				} else if (
+					cells[i].textContent == cells[i + 3].textContent &&
+					cells[i + 6].textContent == cells[i].textContent
+				) {
+					if (i == 0 || i == 1 || i == 2)
+						if (cells[i].textContent == player1.marker) {
+							text.textContent = `X wins`;
+						} else if (cells[i].textContent == player2.marker) {
+							text.textContent = `O wins`;
+						}
+				} else if (
 					cells[i].textContent == cells[i + 2].textContent &&
 					cells[i + 2].textContent == cells[i].textContent
 				) {
