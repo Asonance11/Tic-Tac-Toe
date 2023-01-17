@@ -11,6 +11,14 @@ let player2 = player('player2', 'O');
 const gameBoard = (() => {
 	let board = [];
 	let currentPlayer = player1.marker;
+
+	restartButton.addEventListener('click', restart);
+
+	function restart() {
+		for (let i = 0; i < cells.length; i++) {
+			cells[i].textContent = '';
+		}
+	}
 	cells.forEach((cell) => {
 		cell.addEventListener('click', () => {
 			if (currentPlayer == player1.marker) {
